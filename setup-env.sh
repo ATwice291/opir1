@@ -15,10 +15,8 @@ BUILD_DIR="$PROJECT_DIR/build"
 POKY_DIR="$PROJECT_DIR/poky"
 
 # Check submodules
-if [ ! -d "$POKY_DIR" ]; then
-    echo ">>> Poky submodule not found - update submodules..."
-    git submodule update --init --recursive
-fi
+echo ">>> Poky submodules checking..."
+git submodule update --init --recursive
 
 mkdir -p "$BUILD_DIR"
 # Check config files
@@ -31,4 +29,4 @@ fi
 
 # Source Poky environment
 echo ">>> Setting up Yocto environment..."
-source "$POKY_DIR/oe-init-build-env" "$BUILD_DIR"
+source "poky/oe-init-build-env"

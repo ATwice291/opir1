@@ -15,4 +15,4 @@ Clone this repository and initialize the environment:
 ```bash
 git clone https://github.com/ATwice291/opir1.git
 cd opir1
-./setup-env.sh
+. setup-env.sh
