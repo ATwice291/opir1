@@ -1,0 +1,40 @@
+From 1d204951aa26f33e5584fc5513e4bcf0e6f10b76 Mon Sep 17 00:00:00 2001
+From: atwice291 <a@b.c>
+Date: Thu, 21 Aug 2025 18:05:00 +0400
+Subject: [PATCH] Enable SPI1 port for LCD
+
+---
+ arch/arm/boot/dts/sun8i-h2-plus-orangepi-r1.dts | 17 +++++++++++++++++
+ 1 file changed, 17 insertions(+)
+
+diff --git a/arch/arm/boot/dts/sun8i-h2-plus-orangepi-r1.dts b/arch/arm/boot/dts/sun8i-h2-plus-orangepi-r1.dts
+index 3356f4210..ec9ee8416 100644
+--- a/arch/arm/boot/dts/sun8i-h2-plus-orangepi-r1.dts
++++ b/arch/arm/boot/dts/sun8i-h2-plus-orangepi-r1.dts
+@@ -76,6 +76,23 @@ flash@0 {
+ 	};
+ };
+ 
++&spi1 {
++    status = "okay";
++    st7735r@0 {
++        compatible = "sitronix,st7735r", "jianda,jd-t18003-t01";
++        reg = <0>;                        /* CS0 */
++        spi-max-frequency = <10000000>;
++
++        dc-gpios = <&pio 0 10 GPIO_ACTIVE_HIGH>; /* пример: PA7 для DC */
++        reset-gpios = <&pio 0 7 GPIO_ACTIVE_HIGH>; /* пример: PA6 для RESET */
++
++        width = <160>;
++        height = <128>;
++        rotation = <270>;
++        buswidth = <8>;
++    };
++};
++
+ &ohci1 {
+ 	/*
+ 	 * RTL8152B USB-Ethernet adapter is connected to USB1,
+-- 
+2.25.1
+
