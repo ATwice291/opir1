@@ -10,3 +10,6 @@
 	path = meta-sunxi
 	url = https://github.com/linux-sunxi/meta-sunxi.git
 	branch = kirkstone
+[submodule "meta-qt5"]
+	path = meta-qt5
+	url = https://github.com/meta-qt5/meta-qt5.git
