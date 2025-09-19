@@ -10,7 +10,7 @@ And here is how it actually works:
 
 ![LCD Animation](opir1_spi_lcd_st7735.gif)
 
-![Weather station](video_2025-09-19_22-17-22.gif)
+![Weather station](weatherStation.gif)
 
 ## Repository Structure
 
